@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pod Squad Roster</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px 48px;
+    min-height: 100vh;
+  }
+
+  .card {
+    width: 480px;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .header {
+    background: #0f1f0f;
+    border-bottom: 1px solid #1e3a1e;
+    padding: 32px 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(180,215,100,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .programme-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: #7aad3a;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 900;
+    color: #f0f0e8;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+
+  .title span {
+    color: #b4d764;
+  }
+
+  .subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #888;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .meta-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #b4d764;
+    background: rgba(180,215,100,0.1);
+    border: 1px solid rgba(180,215,100,0.2);
+    border-radius: 20px;
+    padding: 4px 12px;
+  }
+
+  .roster {
+    padding: 20px 24px 28px;
+  }
+
+  .batch {
+    margin-bottom: 22px;
+  }
+
+  .batch-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .batch-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .batch-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #666;
+    flex: 1;
+  }
+
+  .batch-count {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: #444;
+  }
+
+  .mentee-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 5px 0;
+  }
+
+  .mentee-num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #3a3a3a;
+    width: 18px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .mentee-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e8e8e0;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mentee-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #555;
+    white-space: nowrap;
+  }
+
+  .ca-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    color: #7aad3a;
+    background: rgba(122,173,58,0.12);
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .footer {
+    border-top: 1px solid #1a1a1a;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .ambassador-line {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: #555;
+  }
+
+  .ambassador-name {
+    font-weight: 500;
+    color: #b4d764;
+  }
+
+  .thuthuka-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #2a2a2a;
+    letter-spacing: 0.08em;
+  }
+
+  .divider-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #2a2a2a, transparent);
+    margin: 4px 0;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="header">
+    <p class="programme-label">SAICA Thuthuka · 2026 Mentee Pod</p>
+    <h1 class="title">Meet Your<br><span>Squad.</span></h1>
+    <p class="subtitle">18 driven CAs and trainees.<br>One pod. One ambassador. Let's go.</p>
+    <div class="meta-row">
+      <span class="meta-pill">18 Mentees</span>
+      <span class="meta-pill">4 Sectors</span>
+      <span class="meta-pill">Cohort 2026</span>
+    </div>
+  </div>
+
+  <div class="roster">
+
+    <div class="batch">
+      <div class="batch-header">
+        <div class="batch-dot" style="background:#4a9e6e"></div>
+        <span class="batch-title">Public Sector &amp; Governance</span>
+        <span class="batch-count">4</span>
+      </div>
+      <div class="mentee-row"><span class="mentee-num">01</span><span class="mentee-name">Nompilo Nobela</span><span class="mentee-tag">AGSA · Trainee</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">02</span><span class="mentee-name">Mlamli Mchiza <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">Public Sector</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">03</span><span class="mentee-name">Salphina Hamese <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">Exec Track</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">04</span><span class="mentee-name">Nomfundo Ndovela</span><span class="mentee-tag">Trainee · Investment</span></div>
+    </div>
+
+    <div class="batch">
+      <div class="batch-header">
+        <div class="batch-dot" style="background:#3a82c4"></div>
+        <span class="batch-title">Banking, Finance &amp; Investment</span>
+        <span class="batch-count">4</span>
+      </div>
+      <div class="mentee-row"><span class="mentee-num">05</span><span class="mentee-name">Tristan Bock</span><span class="mentee-tag">Trainee · Banking</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">06</span><span class="mentee-name">Thuto Madiba</span><span class="mentee-tag">Trainee · Corp Finance</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">07</span><span class="mentee-name">Qamanande Ngwane <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">Internal Audit</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">08</span><span class="mentee-name">Raeesa Casoojee <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">Digital Finance</span></div>
+    </div>
+
+    <div class="batch">
+      <div class="batch-header">
+        <div class="batch-dot" style="background:#c4883a"></div>
+        <span class="batch-title">Commercial &amp; Executive Track</span>
+        <span class="batch-count">5</span>
+      </div>
+      <div class="mentee-row"><span class="mentee-num">09</span><span class="mentee-name">Ashly Rajah <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">FM · FMCG</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">10</span><span class="mentee-name">Natasha Ramlugan <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">FM · Retail/Auto</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">11</span><span class="mentee-name">Rookaya Khan <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">FM · Financial Svcs</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">12</span><span class="mentee-name">Liveshan Subban <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">Practice Owner</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">13</span><span class="mentee-name">Nqobile Ndawonde</span><span class="mentee-tag">Trainee · BDO</span></div>
+    </div>
+
+    <div class="batch">
+      <div class="batch-header">
+        <div class="batch-dot" style="background:#9a6ec4"></div>
+        <span class="batch-title">Trainees Finding Their Path</span>
+        <span class="batch-count">5</span>
+      </div>
+      <div class="mentee-row"><span class="mentee-num">14</span><span class="mentee-name">Cebokazi Ndila</span><span class="mentee-tag">Trainee · Audit</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">15</span><span class="mentee-name">Dineo Mashego</span><span class="mentee-tag">Trainee · Tech</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">16</span><span class="mentee-name">Lawrence Lowdon</span><span class="mentee-tag">Trainee · Entrepreneur</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">17</span><span class="mentee-name">Zokuhle Dlamini</span><span class="mentee-tag">Trainee · APC 2026</span></div>
+      <div class="divider-line"></div>
+      <div class="mentee-row"><span class="mentee-num">18</span><span class="mentee-name">Marcia Sadiki <span class="ca-badge">CA(SA)</span></span><span class="mentee-tag">Open to growth</span></div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="ambassador-line">Pod Ambassador — <span class="ambassador-name">Michael Mokadi</span></span>
+    <span class="thuthuka-mark">THUTHUKA</span>
+  </div>
+
+</div>
+</body>
+</html>
